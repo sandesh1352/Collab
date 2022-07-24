@@ -1,5 +1,7 @@
 package com.collabts;
 
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -21,6 +23,13 @@ public class MainActivity extends ReactActivity {
    * you can specify the renderer you wish to use - the new renderer (Fabric) or the old renderer
    * (Paper).
    */
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    RNBootSplash.init(getPlainActivity());
+    super.onCreate(null);
+  }
+  
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new MainActivityDelegate(this, getMainComponentName());
@@ -35,7 +44,6 @@ public class MainActivity extends ReactActivity {
     @Override
     protected ReactRootView createRootView() {
       ReactRootView reactRootView = new ReactRootView(getContext());
-       RNBootSplash.init(getPlainActivity());
       // If you opted-in for the New Architecture, we enable the Fabric Renderer.
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
