@@ -26,7 +26,7 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    RNBootSplash.init(getPlainActivity());
+    
     super.onCreate(null);
   }
   
@@ -45,6 +45,7 @@ public class MainActivity extends ReactActivity {
     protected ReactRootView createRootView() {
       ReactRootView reactRootView = new ReactRootView(getContext());
       // If you opted-in for the New Architecture, we enable the Fabric Renderer.
+      RNBootSplash.init(getPlainActivity());
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
     }
